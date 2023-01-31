@@ -54,6 +54,10 @@ module: {
 		loader: 'html-loader',
 		},
 		{
+			test: /\.(mp3|wav|mpe?g|ogg)?$/i,
+			use: 'file-loader'
+		},
+		{
 		test: /\.(c|sa|sc)ss$/i,
 		use: [
 			devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
