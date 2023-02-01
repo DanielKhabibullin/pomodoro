@@ -119,6 +119,9 @@ iframe {
 }
 
 .time {
+	display: grid;
+	grid-template-columns: 125px min-content 125px;
+	align-self: center;
 	font-size: 120px;
 	color: #F85959;
 	text-align: center;
