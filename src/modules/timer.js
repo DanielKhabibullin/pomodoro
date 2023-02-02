@@ -39,19 +39,3 @@ export const startTimer = () => {
 		startTimer();
 	}
 }
-
-//  OR
-// const showTime = (seconds) => {
-// 	if (seconds >= 600) {
-// 		minutesElem.textContent = Math.floor(seconds / 60);
-// 	} else 
-// 		{ 
-// 		minutesElem.textContent = '0' + Math.floor(seconds / 60);
-// 	}	
-// 	if ((seconds % 60) >= 10) {
-// 		secondsElem.textContent = seconds % 60;
-// 	} else 
-// 		{ 
-// 		secondsElem.textContent = '0' + (seconds % 60);
-// 	}
-// }
