@@ -21,7 +21,7 @@ const addTodo = (title) => {
 	return todo;
 };
 
-const updateTodo = (todo) => {
+export const updateTodo = (todo) => {
 	const todoList = getTodo();
 	const todoItem = todoList.find((item) => item.id === todo.id);
 	todoItem.title = todo.title;
@@ -91,7 +91,7 @@ const renderTodoList = (list) => {
 	list.forEach(createTodoListItem);
 };
 
-const showTodo = () => {
+export const showTodo = () => {
 	if (state.activeTodo) {
 		titleElem.textContent = state.activeTodo.title;
 		countElem.textContent = state.activeTodo.pomodoro; //todo
