@@ -35,7 +35,7 @@ const deleteTodo = (todo) => {
 	if (todo.id === state.activeTodo.id) {
 		state.activeTodo = newTodoList[newTodoList.length -1];
 	}
-	localStorage.setItem('pomodoro', JSON.stringify(todoList));
+	localStorage.setItem('pomodoro', JSON.stringify(newTodoList));
 };
 
 const createTodoListItem = (todo) => {
@@ -131,7 +131,7 @@ export const initTodo = () => {
 	const subtitle = document.createElement('p');
 	subtitle.textContent = 'No tasks here';
 	if (!todoList.length) {
-		todoListElem.insertAdjacentElement('beforebegin', subtitle)
+		todoListElem.insertAdjacentElement('beforebegin', subtitle);
 		state.activeTodo = {
 			id: 'default',
 			pomodoro: 0,

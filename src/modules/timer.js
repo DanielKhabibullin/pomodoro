@@ -12,16 +12,28 @@ export const showTime = seconds => {
 	secondsElem.textContent = addZero(seconds % 60);
 }
 
+const title = document.title;
+
 export const startTimer = () => {
-	state.timeLeft -= 5;
+	const countdown = new Date().getTime() + state.timeLeft * 1000;
 
-	showTime(state.timeLeft);
+	state.timerId = setInterval(() => {
+		state.timeLeft -= 1;
+		showTime(state.timeLeft);
 
-	if (state.timeLeft > 0 && state.isActive) {
-		state.timerId = setTimeout(startTimer, 1000);
-	}
+		document.title = state.timeLeft;
 
-	if (state.timeLeft <= 0) {
+		if (!(state.timeLeft % 5)) {
+			const now = new Date().getTime();
+			state.timeLeft = Math.floor((countdown - now) / 1000);
+			console.log('time sync');
+		}
+
+		if (state.timeLeft > 0 && state.isActive) {
+			return;
+		}
+
+		document.title = title;
 
 		if (state.status === 'work') {
 			state.activeTodo.pomodoro += 1;
@@ -40,5 +52,5 @@ export const startTimer = () => {
 		changeActiveBtn(state.status);
 		showTodo();
 		startTimer();
-	}
-}
+	}, 1000);
+};
