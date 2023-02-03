@@ -1,4 +1,4 @@
-const WORK_TIME = .5;
+const WORK_TIME = .2;
 const BREAK_TIME = .15;
 const RELAX_TIME = .3;
 
