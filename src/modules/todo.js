@@ -23,6 +23,10 @@ const addTodo = (title) => {
 
 export const updateTodo = (todo) => {
 	const todoList = getTodo();
+	if (!todoList.length) {
+		return;
+	}
+
 	const todoItem = todoList.find((item) => item.id === todo.id);
 	todoItem.title = todo.title;
 	todoItem.pomodoro = todo.pomodoro;
@@ -117,7 +121,7 @@ const createBtnAddTodo = () => {
 			createTodoListItem(todo);
 			state.activeTodo = todo;
 			showTodo();
-			subtitle.remove();
+			subtitle.remove(); //todo
 		} else {
 			alert('Enter correct data');
 		}
